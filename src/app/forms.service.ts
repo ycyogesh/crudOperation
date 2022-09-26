@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment } from "../environments/environment";
 
 
 @Injectable({
@@ -10,22 +11,22 @@ export class FormsService {
   constructor(private httpClient : HttpClient) { }
 
   addUser(name:{ name: string; mail: string; }){
-    return this.httpClient.post("http://localhost:3000/usersList",name);
+    return this.httpClient.post(environment.appUrl+"sql",name);
   }
   
   getAllUser(){
-    return this.httpClient.get("http://localhost:3000/usersList");
+    return this.httpClient.get(environment.appUrl+"sql");
   }
 
   getUserById(id : number){
-    return this.httpClient.get("http://localhost:3000/usersList/"+id)
+    return this.httpClient.get(environment.appUrl+"getRecordById/"+id)
   }
 
   editUser(id : number,name : any){
-    return this.httpClient.put("http://localhost:3000/usersList/"+id,name)
+    return this.httpClient.put(environment.appUrl+"putData/"+id,name)
   }
 
   deleteUser(id : number){
-    return this.httpClient.delete("http://localhost:3000/usersList/"+id)
+    return this.httpClient.delete(environment.appUrl+"usersList/"+id)
   }
 }

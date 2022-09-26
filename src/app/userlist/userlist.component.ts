@@ -12,6 +12,7 @@ export class UserlistComponent implements OnInit {
   constructor(private aRoute : ActivatedRoute, private appService : FormsService, private router : Router) { }
 
   usersList : any;
+  data : any 
 
   ngOnInit(): void {
     this.getUserDetails();
@@ -19,8 +20,10 @@ export class UserlistComponent implements OnInit {
 
   getUserDetails(){
     this.appService.getAllUser().subscribe((data)=>{
-      console.log(data);
-      this.usersList = data 
+      this.data = data
+      console.log("---------->",this.data.result[0]);
+      this.usersList = this.data.result
+      
     })
   }
   editUser(id : number){
