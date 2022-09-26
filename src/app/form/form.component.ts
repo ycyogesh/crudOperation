@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from '../forms.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   userId : number = 0;
   data : any
 
-  constructor(private appService : FormsService, private aRoute : ActivatedRoute) { }
+  constructor(private appService : FormsService, private aRoute : ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
     this.aRoute.params.subscribe((data)=>{
@@ -32,6 +32,7 @@ export class FormComponent implements OnInit {
   addUser(){
     this.appService.addUser({name : this.userName,mail : this.userMail}).subscribe((data)=>{
       console.log(data);
+      this.router.navigate(['user-list']);
     })
   }
 getUserById(id : number){
@@ -44,6 +45,9 @@ getUserById(id : number){
 }
 
   updateUser(){
-
+    this.appService.editUser(this.userId,{'name' : this.userName, 'mail' : this.userMail}).subscribe((data)=>{
+      console.log(data);
+      this.router.navigate(['user-list']);
+    })
   }
 }
