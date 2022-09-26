@@ -1,0 +1,11 @@
+<div class="forms">
+    <label for="name">Name</label>
+    <input type="text" [(ngModel)] ="userName" name="name" id="">
+    <p>{{userName}}</p>
+
+    <label for="mail">Mail</label>
+    <input type="text" [(ngModel)] ="userMail" name="mail" id="">
+    <p>{{userMail}}</p>
+
+    <button (click)="addUser()">Add User</button>
+</div>
