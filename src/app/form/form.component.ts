@@ -9,14 +9,15 @@ import { FormsService } from '../forms.service';
 export class FormComponent implements OnInit {
 
   userName : string = "";
-  userMail : string = ""
+  userMail : string = "";
+  usersList : Array<any> = []
 
   constructor(private appService : FormsService) { }
 
   ngOnInit(): void {
   }
   addUser(){
-    this.appService.addUser(this.userName,this.userMail).subscribe((data)=>{
+    this.appService.addUser({name : this.userName,mail : this.userMail}).subscribe((data)=>{
       console.log(data);
       
     })

@@ -1,7 +1,14 @@
 {
-  "usersList" : [
-      {
-          
-      }
+  "usersList": [
+    {
+      "name": "yogesh",
+      "mail": "yc@gmail.com",
+      "id": 1
+    },
+    {
+      "name": "123",
+      "mail": "123",
+      "id": 2
+    }
   ]
 }
