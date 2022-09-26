@@ -11,8 +11,8 @@
             <td>{{user.name}}</td>
             <td>{{user.mail}}</td>
             <td>
-                <span><button>Edit</button></span>
-                <span><button>Delete</button></span>
+                <span><button (click)="editUser(user.id)">Edit</button></span>
+                <span><button (click)="deleteUser(user.id)">Delete</button></span>
             </td>
         </tr>
     </table>

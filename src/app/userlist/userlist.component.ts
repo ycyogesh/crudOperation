@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from '../forms.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormsService } from '../forms.service';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor(private aRoute : ActivatedRoute, private appService : FormsService) { }
+  constructor(private aRoute : ActivatedRoute, private appService : FormsService, private router : Router) { }
 
   usersList : any;
 
@@ -21,6 +21,19 @@ export class UserlistComponent implements OnInit {
     this.appService.getAllUser().subscribe((data)=>{
       console.log(data);
       this.usersList = data 
+    })
+  }
+  editUser(id : number){
+      this.router.navigate(['edit-user',id],{relativeTo : this.aRoute});
+    // this.getUserDetails();
+
+  }
+
+  deleteUser(id : number){
+    this.appService.deleteUser(id).subscribe((result)=>{
+      console.log(result);
+      this.getUserDetails();
+      
     })
   }
 }

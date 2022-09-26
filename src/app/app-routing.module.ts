@@ -16,6 +16,11 @@ const routes: Routes = [
   {
     path : "user-list",
     component : UserlistComponent
+  },
+  {
+    path : "user-list/edit-user/:id",
+    component : FormComponent
+
   }
 ];
 
