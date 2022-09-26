@@ -3,11 +3,11 @@
 </div>
 <div class="forms">
     <label for="name">Name</label>
-    <input type="text" [(ngModel)] ="userName" name="name" id="">
+    <input type="text" [(ngModel)] ="userName" name="name" id="name">
     <!-- <p>{{userName}}</p> -->
 
     <label for="mail">Mail</label>
-    <input type="text" [(ngModel)] ="userMail" name="mail" id="">
+    <input type="text" [(ngModel)] ="userMail" name="mail" id="mail">
     <!-- <p>{{userMail}}</p> -->
 
     <button *ngIf="!isUpdate" (click)="addUser()">Add User</button>
