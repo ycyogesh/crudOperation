@@ -10,7 +10,10 @@ export class FormsService {
   constructor(private httpClient : HttpClient) { }
 
   addUser(name:{ name: string; mail: string; }){
-    return this.httpClient.post("http://localhost:3000/usersList",name)
+    return this.httpClient.post("http://localhost:3000/usersList",name);
   }
   
+  getAllUser(){
+    return this.httpClient.get("http://localhost:3000/usersList");
+  }
 }
