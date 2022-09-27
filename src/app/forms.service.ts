@@ -19,11 +19,11 @@ export class FormsService {
   }
 
   getUserById(id : number){
-    return this.httpClient.get(environment.appUrl+"getRecordById/"+id)
+    return this.httpClient.get(environment.appUrl+"getRecordById?id="+id)
   }
 
   editUser(id : number,name : any){
-    return this.httpClient.put(environment.appUrl+"putData/"+id,name)
+    return this.httpClient.put(environment.appUrl+"putData?id="+id,name)
   }
 
   deleteUser(id : number){

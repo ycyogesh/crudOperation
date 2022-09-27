@@ -39,8 +39,8 @@ export class FormComponent implements OnInit {
     this.appService.getUserById(id).subscribe((data) => {
       console.log("----------->", data);
       this.data = data
-      this.userName = this.data.name
-      this.userMail = this.data.mail
+      this.userName = this.data.result[0].name
+      this.userMail = this.data.result[0].email
     })
   }
 
