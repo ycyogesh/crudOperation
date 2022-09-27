@@ -27,6 +27,6 @@ export class FormsService {
   }
 
   deleteUser(id : number){
-    return this.httpClient.delete(environment.appUrl+"usersList/"+id)
+    return this.httpClient.delete(environment.appUrl+"deleteUser?id="+id)
   }
 }
