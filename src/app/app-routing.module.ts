@@ -20,7 +20,6 @@ const routes: Routes = [
   {
     path : "user-list/edit-user/:id",
     component : FormComponent
-
   }
 ];
 
