@@ -19,3 +19,31 @@
 
 <!-- Reactive Forms -->
 
+<div [formGroup]="userForm">
+
+   <div>
+    <label for="name">Name</label>
+    <div>
+        <input type="text" required minlength="4" formControlName="userName" name="name" id="name">
+    </div>
+    <div *ngIf="form['userName'].invalid && ( form['userName'].dirty || form['userName'].touched )">
+        <div *ngIf="form['userName'].errors?.required">
+            Name is required
+        </div>
+        <div *ngIf="form['userName'].errors?.minlength">
+            Name should be length of 4
+        </div>
+    </div>
+
+   </div>
+    <div>
+        <label for="mail">Mail</label>
+        <div>
+        <input type="text" formControlName="userMail" name="mail" id="mail">
+        </div>
+    </div>
+
+    <button *ngIf="!isUpdate" (click)="addUser()">Add User</button>
+    <button *ngIf="isUpdate" (click)="updateUser()">Update User</button>
+
+</div>

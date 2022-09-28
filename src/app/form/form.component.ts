@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from '../forms.service';
+import { FormControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -9,6 +10,8 @@ import { FormsService } from '../forms.service';
 })
 export class FormComponent implements OnInit {
 
+  userForm : any;
+
   userName: string = ""
   userMail: string = ""
   usersList: Array<any> = [];
@@ -16,10 +19,17 @@ export class FormComponent implements OnInit {
   userId: number = 0;
   data: any
 
-  constructor(private appService: FormsService, private aRoute: ActivatedRoute, private router: Router) { }
+  constructor(private appService: FormsService, private aRoute: ActivatedRoute, private router: Router, private fb : FormBuilder) { }
 
   ngOnInit(): void {
     this.aRoute.params.subscribe((data) => {
+
+      this.userForm = this.fb.group({
+        userName : [null, [Validators.required, Validators.minLength(4)]],
+        userMail : [null, [Validators.required, Validators.email]]
+      })
+
+
       console.log(data);
       data.hasOwnProperty('id') ? this.isUpdate = true : this.isUpdate = false;
 
@@ -29,6 +39,11 @@ export class FormComponent implements OnInit {
       }
     })
   }
+
+  get form(){
+    return this.userForm.controls
+  }
+
   addUser() {
     this.appService.addUser({ name: this.userName, mail: this.userMail }).subscribe((data) => {
       console.log(data);
