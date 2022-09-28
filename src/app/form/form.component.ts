@@ -21,14 +21,14 @@ export class FormComponent implements OnInit {
 
   constructor(private appService: FormsService, private aRoute: ActivatedRoute, private router: Router, private fb : FormBuilder) { }
 
+  
   ngOnInit(): void {
+    this.userForm = this.fb.group({
+      userName : [null, [Validators.required, Validators.minLength(4)]],
+      userMail : [null, [Validators.required, Validators.email]]
+    })
+
     this.aRoute.params.subscribe((data) => {
-
-      this.userForm = this.fb.group({
-        userName : [null, [Validators.required, Validators.minLength(4)]],
-        userMail : [null, [Validators.required, Validators.email]]
-      })
-
 
       console.log(data);
       data.hasOwnProperty('id') ? this.isUpdate = true : this.isUpdate = false;
