@@ -24,7 +24,7 @@
    <div>
     <label for="name">Name</label>
     <div>
-        <input type="text" required minlength="4" formControlName="userName" name="name" id="name">
+        <input type="text" formControlName="userName" name="name" id="name">
     </div>
     <div *ngIf="form['userName'].invalid && ( form['userName'].dirty || form['userName'].touched )">
         <div *ngIf="form['userName'].errors?.required">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <button *ngIf="!isUpdate" (click)="addUser()">Add User</button>
+    <button [disabled]="!form['userName'].value" *ngIf="!isUpdate" (click)="addUser()">Add User</button>
     <button *ngIf="isUpdate" (click)="updateUser()">Update User</button>
 
 </div>

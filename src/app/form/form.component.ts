@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
 
     this.aRoute.params.subscribe((data) => {
 
-      console.log(data);
+      // console.log(data);
       data.hasOwnProperty('id') ? this.isUpdate = true : this.isUpdate = false;
 
       if (this.isUpdate) {
@@ -45,7 +45,7 @@ export class FormComponent implements OnInit {
   }
 
   addUser() {
-    this.appService.addUser({ name: this.userName, mail: this.userMail }).subscribe((data) => {
+    this.appService.addUser({ name: this.form['userName'].value, mail: this.form['userMail'].value }).subscribe((data) => {
       console.log(data);
       this.router.navigate(['user-list']);
     })
