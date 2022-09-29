@@ -21,25 +21,33 @@
 
 <div [formGroup]="userForm">
 
-   <div>
-    <label for="name">Name</label>
     <div>
-        <input type="text" formControlName="userName" name="name" id="name">
-    </div>
-    <div *ngIf="form['userName'].invalid && ( form['userName'].dirty || form['userName'].touched )">
-        <div *ngIf="form['userName'].errors?.required">
-            Name is required
+        <label for="name">Name</label>
+        <div>
+            <input type="text" formControlName="userName" name="name" id="name">
         </div>
-        <div *ngIf="form['userName'].errors?.minlength">
-            Name should be length of 4
+        <div *ngIf="form['userName'].invalid && ( form['userName'].dirty || form['userName'].touched )">
+            <div *ngIf="form['userName'].errors?.required">
+                Name is required
+            </div>
+            <div *ngIf="form['userName'].errors?.minlength">
+                Name should be length of 4
+            </div>
         </div>
-    </div>
 
-   </div>
+    </div>
     <div>
         <label for="mail">Mail</label>
         <div>
-        <input type="text" formControlName="userMail" name="mail" id="mail">
+            <input type="text" formControlName="userMail" name="mail" id="mail">
+        </div>
+        <div *ngIf="form['userMail'].invalid && ( form['userMail'].dirty || form['userMail'].touched )">
+            <div *ngIf="form['userMail'].errors?.required">
+                Email is required
+            </div>
+            <div *ngIf="form['userMail'].errors?.minlength">
+                Email should be length of 4
+            </div>
         </div>
     </div>
 
