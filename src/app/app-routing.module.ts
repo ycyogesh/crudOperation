@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { FormComponent } from './form/form.component';
 import { UserlistComponent } from './userlist/userlist.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path : "user-list",
-    component : UserlistComponent
+    component : UserlistComponent,
+    canActivate :[AuthGuard]
   },
   {
     path : "user-list/edit-user/:id",
