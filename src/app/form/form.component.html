@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <button [disabled]="!form['userName'].value" *ngIf="!isUpdate" (click)="addUser()">Add User</button>
+    <button [disabled]="!userForm.valid" *ngIf="!isUpdate" (click)="addUser()">Add User</button>
     <button *ngIf="isUpdate" (click)="updateUser()">Update User</button>
 
 </div>

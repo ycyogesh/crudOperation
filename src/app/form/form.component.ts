@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
       userName : [null, [Validators.required, Validators.minLength(4)]],
       userMail : [null, [Validators.required, Validators.email]]
     })
+console.log("0000000000000-------->",this.userForm);
 
     this.aRoute.params.subscribe((data) => {
 
