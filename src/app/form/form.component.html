@@ -19,7 +19,7 @@
 
 <!-- Reactive Forms -->
 
-<div [formGroup]="userForm">
+<!-- <div [formGroup]="userForm">
 
     <div>
         <label for="name">Name</label>
@@ -54,4 +54,38 @@
     <button [disabled]="!userForm.valid" *ngIf="!isUpdate" (click)="addUser()">Add User</button>
     <button *ngIf="isUpdate" (click)="updateUser()">Update User</button>
 
-</div>
+</div> -->
+
+
+
+<!-- Using PrimeNG Componenets -->
+
+
+<div [formGroup]="userForm">
+
+    <div>
+        <div class="field">
+            <label for="username2" class="block">Username</label>
+            <input id="username2" type="username" aria-describedby="username2-help" class="ng-invalid ng-dirty ng-touched"
+                pInputText />
+            <small id="username2-help" class="p-error block">Username is not available.</small>
+        </div>
+    </div>
+    <div>
+        <label for="mail">Mail</label>
+        <div>
+            <input type="text" formControlName="userMail" name="mail" id="mail">
+        </div>
+        <div *ngIf="form['userMail'].invalid && ( form['userMail'].dirty || form['userMail'].touched )">
+            <div *ngIf="form['userMail'].errors?.required">
+                Email is required
+            </div>
+            <div *ngIf="form['userMail'].errors?.minlength">
+                Email should be length of 4
+            </div>
+        </div>
+    </div>
+
+    <button [disabled]="userForm.valid" *ngIf="!isUpdate" (click)="addUser()" pButton pRipple type="button" label="Primary" class="p-button-raised"></button>
+    <button *ngIf="isUpdate" (click)="updateUser()">Update User</button>
+    

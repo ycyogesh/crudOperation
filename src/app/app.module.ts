@@ -7,6 +7,9 @@ import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { UserlistComponent } from './userlist/userlist.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { UserlistComponent } from './userlist/userlist.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule,
+    ButtonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
